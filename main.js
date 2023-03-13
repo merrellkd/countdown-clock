@@ -12,15 +12,13 @@ setInterval(() => {
     const difference = targetTime - now;
 
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((difference / (1000 * 60)) % 60);
-    const seconds = Math.floor((difference / 1000) % 60);
+    const hoursAfterDays = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutesAfterHours = Math.floor((difference / (1000 * 60)) % 60);
+    const secondsAfterMinutes = Math.floor((difference / 1000) % 60);
     const tenthsOfSeconds = Math.floor((difference / 100) % 10);
 
-
-    console.log('xxx',tenthsOfSeconds)
     // update the countdown clock
-    updateClock(days, hours, minutes, seconds, tenthsOfSeconds);
+    updateClock(days, hoursAfterDays, minutesAfterHours, secondsAfterMinutes, tenthsOfSeconds);
 }, 200);
 
 
@@ -55,5 +53,5 @@ function updateClock(days, hours, minutes, seconds, tenthsOfSeconds) {
     document.getElementById('days').innerHTML = '<img src="./images/' + images[daysHundreds] + '"><img src="./images/' + images[daysTens] + '"><img src="./images/' + images[daysOnes] + '">';
     document.getElementById('hours').innerHTML = '<img src="./images/' + images[hoursTens] + '"><img src="./images/' + images[hoursOnes] + '">';
     document.getElementById('minutes').innerHTML = '<img src="./images/' + images[minutesTens] + '"><img src="./images/' + images[minutesOnes] + '">';
-    document.getElementById('sec').innerHTML = '<img src="./images/' + images[secondsTens] + '"><img src="./images/' + images[secondsOnes] + '">.' + '"><img src="./images/' + images[tenthsOfSecondsOnes] + '">';
+    document.getElementById('sec').innerHTML = '<img src="./images/' + images[secondsTens] + '"><img src="./images/' + images[secondsOnes] + '">.<img src="./images/' + images[tenthsOfSecondsOnes] + '">';
 }
