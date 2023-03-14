@@ -44,14 +44,13 @@ function updateClock(days, hours, minutes, seconds, tenthsOfSeconds) {
     // Extract individual digits for tenths of seconds
     const tenthsOfSecondsOnes = tenthsOfSeconds % 10;
 
-    // console.log(`${daysHundreds}${daysTens}${daysOnes}days,
-    //       ${hoursTens}${hoursOnes}hours, 
-    //       ${minutesTens}${minutesOnes}minutes, 
-    //       ${secondsTens}${secondsOnes}seconds`);
+    console.log(`${daysHundreds}${daysTens}${daysOnes}days,
+          ${hoursTens}${hoursOnes}hours, 
+          ${minutesTens}${minutesOnes}minutes, 
+          ${secondsTens}${secondsOnes}seconds`);
 
-    // document.getElementById('sec').innerHTML = '';
-    document.getElementById('days').innerHTML = '<img src="./images/' + images[daysHundreds] + '"><img src="./images/' + images[daysTens] + '"><img src="./images/' + images[daysOnes] + '">';
+    document.getElementById('days').innerHTML = `${daysHundreds > 0? "'<img src=\"./images/" + images[daysHundreds] +">" :''}<img src="./images/${images[daysTens]}"><img src="./images/${images[daysOnes]}">`;
     document.getElementById('hours').innerHTML = '<img src="./images/' + images[hoursTens] + '"><img src="./images/' + images[hoursOnes] + '">';
     document.getElementById('minutes').innerHTML = '<img src="./images/' + images[minutesTens] + '"><img src="./images/' + images[minutesOnes] + '">';
-    document.getElementById('sec').innerHTML = '<img src="./images/' + images[secondsTens] + '"><img src="./images/' + images[secondsOnes] + '">.<img src="./images/' + images[tenthsOfSecondsOnes] + '">';
+    document.getElementById('seconds').innerHTML = `${secondsTens}${secondsOnes}.${tenthsOfSecondsOnes}`;
 }
